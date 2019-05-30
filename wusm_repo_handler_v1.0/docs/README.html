@@ -1,0 +1,112 @@
+<h1>WUSM Repo Handler</h1>
+
+<p>An external module for REDCap to allow use of Local External Module Repositories.  The local EM Repo would be set up on another REDCap server internal to your organization.
+This mimics the standard REDCap EM Manager for retrieval of zip files to add external modules with the difference that it goes to your configured repository URL location.</p>
+
+<hr />
+
+<h2>Getting Started</h2>
+
+<p>Enable the module and set the Custom Repo Url to your local repository, change the Custom Repo Key, and set the Custom Repo Main Dir to the directory where you have your repo server directory.</p>
+
+<p>There is naturally set up for the local EM repo involved here where the above configuration parameters will make more sense.</p>
+
+<p>Please note this only facilitates acquiring External Modules from your internal custom repository pulling zip files and that all the other External Module management is left to the standard processes within the standard External Module Management page.</p>
+
+<hr />
+
+<h3>Prerequisites</h3>
+
+<p>You will first need to set up a whole new server with REDCap and then place the Custom Repo Server code there.
+You MAY use an existing server, however you will need access to place the zip files and make some configuration changes REQUIRED.</p>
+
+<p>On your local external module repository server, add a directory such as "customrepo" and put the Custom Repo Server code there.</p>
+
+<p>Edit the configuration files as described in that separate code base.</p>
+
+<hr />
+
+<pre><code>
+For example: <br />
+    /redcap/customrepo</p>
+
+which will then have some directories as the following
+/redcap/customrepo/modules
+/redcap/customrepo/modules/filesarea   (This is where you put your zipped EM files)
+
+/redcap/customrepo/resources
+/redcap/customrepo/resources/img
+</code></pre>
+
+
+<hr />
+
+<h3>Installing</h3>
+
+<p>Have both the 'client' side and 'server' side have the same custom repo key.</p>
+
+<pre><code>
+Example:  Custom Repo Key:   testingkey</p>
+
+<p>Repo server, configurationKeys.php <br />
+    $customRepoSecretKey = 'testingkey';  // CUSTOMIZE</p>
+
+</code></pre>
+
+<p>Also make sure, the Custom Repo Main Dir configuration matchs the directory on the Local Repo.</p>
+
+<pre><code>
+Custom Repo Main Dir:   customrepo</p>
+
+<p>Repo server /redcap/customrepo/</p>
+
+</code></pre>
+
+<hr />
+
+<h3>Running the tests</h3>
+
+<p>Click on the External module menu item:  "REPO: Custom EM Download"</p>
+
+<p>You should get a simple page with a button link which leads to your Custom Repo Server.</p>
+
+<p>Also there will be a link back to the standard EM Manager page.</p>
+
+<h3> </h3>
+
+<p>Example: There will be a menu item on the left side bar under "External Modules" titled:  "REPO: Custom EM Download"</p>
+
+<hr />
+
+<h3>Deployment</h3>
+
+<p>Regular external module enable and configuration.</p>
+
+<p>A separate install of the customrepo code on a different REDCap server assigned as your repository.</p>
+
+<hr />
+
+<h2>Information</h2>
+
+<h3>Diagrams</h3>
+
+<p>An overview of the process relationships.  <a href="?prefix=wusm_repo_handler&amp;page=docs/YourCustomRepoSetup.pdf">Overview</a> </p>
+
+<hr />
+
+<h3>Authors</h3>
+
+<ul>
+<li><strong>David Heskett</strong> - <em>Initial work</em> - <a href="https://github.com/davidheskettwustl"></a></li>
+</ul>
+
+<h3>License</h3>
+
+<p>This project is licensed under the MIT License - see the <a href="?prefix=wusm_repo_handler&amp;page=LICENSE.md">LICENSE</a> file for details</p>
+
+<h3>Acknowledgments</h3>
+
+<ul>
+<li>Inspired by REDCap, Rob Taylor, Andy Martin, Kevan Essmyer, and folks on the REDCap consortium asking for a feature such as this.</li>
+</ul>
+

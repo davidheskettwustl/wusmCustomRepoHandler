@@ -1,0 +1,90 @@
+{
+	"name": "WUSM Repo Handler Module",
+
+	"namespace": "WashingtonUniversity\\WusmRepoHandlerExternalModule",
+
+	"description": "Make an institution custom repo handler to perform similar feature of Vanderbilt EM download handling.",
+
+  "authors": [
+      {
+          "name": "David L. Heskett",
+          "email": "davidheskett@wustl.edu",
+          "institution": "Washington University School of Medicine Institute for Informatics"
+      },
+      {
+          "name": "Suhas Khot",
+          "email": "skhot@wustl.edu",
+          "institution": "Washington University School of Medicine Institute for Informatics"
+      },
+      {
+          "name": "Sairam Sutari",
+          "email": "sutaris@wustl.edu",
+          "institution": "Washington University School of Medicine Institute for Informatics"
+      }
+  ],
+
+   "permissions": [
+      "redcap_control_center"
+   ],
+
+   "links": {
+      "project": [
+      ],
+      "control-center": [
+      {
+        "name": "REPO: Custom EM Download",
+        "icon": "blog_pencil",
+        "url": "customRepo.php"
+      }
+      ]
+   },
+
+   "project-settings": [
+		],
+
+   "system-settings": [
+			{
+				"key": "custom_repo_location",
+				"name": "Custom Repo Url",
+				"type": "text"
+			},
+			{
+				"key": "custom_repo_secret_key",
+				"name": "Custom Repo Key",
+				"type": "text"
+			},
+			{
+				"key": "custom_repo_root_dir",
+				"name": "Custom Repo Main Dir (The server side directory)",
+				"type": "text"
+			},
+			{
+				"key": "descriptive_settings_section",
+				"name": "<span style=\"background-color:#CCFFCC;\"><strong> &nbsp; General Settings &nbsp; </strong></span><br/>",
+				"type": "descriptive"
+			},
+			{
+				"key": "descriptive_debugger_section",
+				"name": "<span style=\"background-color:#CCFFCC;\"><strong> &nbsp; DEBUG CONFIG &nbsp; </strong></span><br/>(REDCap Admin Use)",
+				"type": "descriptive"
+			},
+	    {
+				"key": "debug_mode_log_system",
+				"name": "Global Log Mode",
+				"type": "checkbox"
+	    },
+			{
+				"key": "super-users-only",
+				"name": "For Super Users Only",
+				"type": "checkbox",
+				"super-users-only": true
+			}
+    ],
+
+    "compatibility": {
+        "php-version-min": "5.5.0",
+        "php-version-max": "",
+        "redcap-version-min": "8.0.0",
+        "redcap-version-max": ""
+    }
+}
