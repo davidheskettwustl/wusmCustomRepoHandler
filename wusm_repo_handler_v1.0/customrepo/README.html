@@ -1,0 +1,110 @@
+<hr />
+
+<h1>CUSTOM Repo Server</h1>
+
+<p>A supporting section of code for REDCap to allow use of Local External Module Repositories. <br />
+The local EM Repo would be set up on another REDCap server internal to your organization.</p>
+
+<p>This mimics the standard REDCap EM Manager for retrieval of zip files to add external modules with the difference that it goes to your configured local repository URL location.</p>
+
+<p>Created at Washington University School of Medicine Institute for Informatics</p>
+<p>Author: David L. Heskett</p>
+
+<hr />
+
+<h2>Getting Started</h2>
+
+<h3>Setup</h3>
+
+<h4>Basics</h4>
+
+<h5>Server set up</h5>
+<ol>
+<li><p>Create CUSTOM REDCap Repo server</p></li>
+<li><p>Add directory under redcap, /customrepo/  </p></li>
+<li><p>Add the REPO handler files.</p></li>
+<li><p>Add your External Module zip files to /redcap/customrepo/modules/filesarea/</p></li>
+</ol>
+
+<h5>Create project</h5>
+
+<ul>
+<li>A project on the Repo server contains controlling information and data for 
+managing the EM Repo.</li>
+<li>You will need access to create and update project information.</li>
+</ul>
+
+<ol>
+<li><p>Create a project and use data dictionary to configure the project.  </p>
+<p><a href="/customrepo/modules/RepoExternalModulesProject_DataDictionary.csv">Repo Data Dictionary</a></p></li>
+<li>Note the PROJECT ID.</li>
+</ol>
+
+<h5>Tools Set up</h5>
+<ol>
+<li><p>Create a bookmark to the generate listing process.</p>
+<p>Example: REPO: Generate Listing - http://wwwrepo/customrepo/modules/generatelist.php</p></li>
+<li><p>Create a bookmark to show the listing.</p>
+<p>Example: REPO: Show Listing - http://wwwrepo/customrepo/modules/getlisting.php</p></li>
+</ol>
+
+<h5>Configuration</h5>
+<ol>
+<li><p>Edit configuration file: /redcap/customrepo/modules/configuration.php</p></li>
+<ol>
+
+<li><p>Change the $customRepoProjectId = 0; // PROJECT ID VALUE</p><p>Example: $customRepoProjectId = 123;</p></li>
+<li><p>Change the $customInstituteName = '';</p><p>Example: $customInstituteName = 'Your Institute Name Here';</p></li>
+<li><p>Change the $customEmailSupport = '';</p><p>Example: $customEmailSupport = 'helpdesk@yoursite.edu';</p></li>
+<li><p>Change the $instituteRepoCustomText = '';</p><p>Example: $instituteRepoCustomText = 'Department';</p></li>
+</ol>
+
+
+<li><p>Edit the configurationKeys file: /redcap/customrepo/modules/configurationKeys.php</p></li>
+<ol>
+
+<li><p>Change the $customRepoSecretKey = 'testingkey';  // CUSTOMIZE</p><p>Example: $customRepoSecretKey = 'yourdifferenttexthere';</p></li>
+</ol>
+</ol>
+
+
+<h2>Usage</h2>
+
+<h3>Entry of a Modules data and Maintaining the listing</h3>
+
+<h4>ADD or Edit records</h4>
+
+<ol>
+<li><p>Go to the project and add entries for your EMs </p>
+<p>(module short name) the EM snake case short name without the version number</p>
+<p>(module system version) the correct latest version number of each related zip file</p>
+<p>and other information</p>
+<p>finally (active flag) the availability of the module, set to "Yes"</p>
+<p>and set to Complete and SAVE</p>
+</li>
+<li><p>Add your External Module zip file to /redcap/customrepo/modules/filesarea/</p></li>
+<li><p>When done with all the add and edit changes, run the </p><p><a href="/customrepo/modules/generatelist.php" target="_blank">REPO: Generate Listing</a></p></li>
+<li><p>Verify you have a good listing as expected. </p><p><a href="/customrepo/modules/getlisting.php" target="_blank">REPO: Show Listing</a></p></li>
+</ol>
+
+<p>When you have a new version, edit the related EM record and update the version number (module system version) and other information as needed if changed. SAVE it.</p>
+
+<p><strong>REMEMBER</strong> to again run the REPO Generate Listing!</p>
+
+
+<h2>Notes</h2>
+
+<ul>
+<li><p>Requires a web server with REDCap and access http(s) from DEV, QA, PROD 
+to communicate to web service hosted on the server allowing External Module
+zip downloads and management.  </p></li>
+<li><p>System will be using http(s) post and get to request data about available external 
+modules, and what client has, to compare versions and other information, and 
+transfer zip files. (Content-Type: application/zip).</p></li>
+<li><p>Will need access to place zip files on to the server, 
+path will be, /redcap/customrepo/modules/filesarea/*.zip</p></li>
+<li><p>Web service uses a token to restrict access to service along with other data elements 
+being required to present any data to client requests.</p></li>
+</ul>
+
+<hr />

@@ -1,0 +1,17 @@
+"Variable / Field Name","Form Name","Section Header","Field Type","Field Label","Choices, Calculations, OR Slider Labels","Field Note","Text Validation Type OR Show Slider Number","Text Validation Min","Text Validation Max",Identifier?,"Branching Logic (Show field only if...)","Required Field?","Custom Alignment","Question Number (surveys only)","Matrix Group Name","Matrix Ranking?","Field Annotation"
+record_id,externalmodulelisting,,text,"Record ID",,,,,,,,,,,,,
+module_id,externalmodulelisting,,text,"module ID",,,,,,,,,,,,,
+module_short_name,externalmodulelisting,,text,"module short name",,,,,,,,,,,,,
+module_system_version,externalmodulelisting,,text,"module system version",,,,,,,,,,,,,
+tag_name,externalmodulelisting,,text,"tag name",,,,,,,,,,,,,
+description,externalmodulelisting,,text,description,,,,,,,,,,,,,
+author_list,externalmodulelisting,,text,"author list",,,,,,,,,,,,,
+authors_info,externalmodulelisting,,descriptive,"Authors Info: for multiple authors separate with a semi-colon, in each field.",,,,,,,,,,,,,
+author_name,externalmodulelisting,,text,"author name",,,,,,,,,,,,,
+author_email,externalmodulelisting,,text,"author email",,,,,,,,,,,,,
+author_institution,externalmodulelisting,,text,"author institution",,,,,,,,,,,,,
+git_hub_link_info,externalmodulelisting,,descriptive,"Git Hub Link: currently unused.",,,,,,,,,,,,,
+git_hub_link,externalmodulelisting,,text,"git hub link",,,,,,,,,,,,,@DEFAULT='none'
+publish_date,externalmodulelisting,,text,"publish date",,,,,,,,,,,,,
+down_load_count,externalmodulelisting,,text,"down load count",,,,,,,,,,,,,
+active_flag,externalmodulelisting,,yesno,"active flag",,,,,,,,,,,,,
